@@ -9,15 +9,19 @@ f45 = bytes.fromhex("0269dd12fe3435ea63f63aef17f8362cdba8")
 
 bxor = lambda a,b: bytes(x ^ y for x, y in zip(a, b))
 
-
+# Extract KEY4
 k4 = bxor(bxor(k1234, k23), k1)
 
+# Extract F5
 f5 = bxor(f45, k4)
 
+# The 4-byte flag
 ff = b'cry{'
 
+# XOR with the 4-byte
 k5 = bxor(ff, f5[:4])
 
+# Repeat KEY5 to match the length
 k5 = (k5 * (len(f5) // 4 + 1))[:len(f5)]
 
 # Decrypt the flag
