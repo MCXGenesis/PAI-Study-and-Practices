@@ -21,15 +21,6 @@ flag2,_= gmpy2.iroot(c,e)
 flag_int = flag2 ^ shared_int
 flag = long_to_bytes(flag_int)
 
-# factors = factorint(n)
 print(flag)
-
-
-
-# t = (p-1)*(q-1)
-# # e smaller than t && e coprime with t
-# d = gmpy2.invert(e, t)
-# # d multiplicative inverse of  e mod t
-
 
 
